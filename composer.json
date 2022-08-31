@@ -1,0 +1,13 @@
+{
+    "name": "jtrw/posix-signal-handler",
+    "description": "Handler for Posix signals",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nil Borodulia",
+            "email": "brdnlsrg@gmail.com"
+        }
+    ],
+    "require": {}
+}

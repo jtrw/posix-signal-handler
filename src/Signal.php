@@ -59,18 +59,3 @@ class Signal
         return posix_getpid();
     }
 }
-
-
-//pcntl_async_signals(true);
-
-
-
-$signal = new Signal();
-
-$k = 10000;
-while (true) {
-    echo $k."\n";
-    sleep(1);
-    $k++;
-    $signal->terminate();
-}
