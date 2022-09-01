@@ -1,7 +1,7 @@
 <?php
 
 include_once __DIR__.'/../vendor/autoload.php';
-$signal = new Signal();
+$signal = new \Jtrw\PosixSignal\SignalHandler();
 
 $k = 10000;
 while (true) {

@@ -9,5 +9,10 @@
             "email": "brdnlsrg@gmail.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "Jtrw\\PosixSignal\\": "src"
+        }
+    },
     "require": {}
 }
