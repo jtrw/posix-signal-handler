@@ -1,7 +1,9 @@
 <?php
 declare(ticks = 1);
 
-class Signal
+namespace Jtrw\PosixSignal;
+
+class SignalHandler
 {
     public bool $flag = false;
     
@@ -24,8 +26,7 @@ class Signal
     
     private function finish(): void
     {
-        echo "Завершение!";
-        exit;
+        exit(0);
     }
     
     private function registered()
@@ -44,7 +45,6 @@ class Signal
             case SIGINT:
             case SIGTSTP:
             case SIGTERM:
-                echo "PID:".posix_getpid();
                 $this->flag = true;
                 break;
             case SIGHUP:
