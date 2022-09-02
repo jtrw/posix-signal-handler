@@ -5,7 +5,7 @@ namespace Jtrw\PosixSignal;
 
 class SignalHandler
 {
-    public bool $flag = false;
+    private bool $isTerminate = false;
     
     public function __construct()
     {
@@ -21,7 +21,7 @@ class SignalHandler
     
     protected function isTerminate(): bool
     {
-        return $this->flag;
+        return $this->isTerminate;
     }
     
     private function finish(): void
@@ -45,7 +45,7 @@ class SignalHandler
             case SIGINT:
             case SIGTSTP:
             case SIGTERM:
-                $this->flag = true;
+                $this->isTerminate = true;
                 break;
             case SIGHUP:
             case SIGILL:
