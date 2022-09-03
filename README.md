@@ -5,4 +5,18 @@ For example queue or workers that run through cron, and working in operation mem
 Sometimes you need to terminate some php process like this `kill -9 pid`
 because you should restart scripts now, and you can have some problem.
 If you terminate process now, you don't know place where you program break off.
+Special for this you can use soft kill `kill -SIGTERM pid`
+In your code yous should integrate this library
+For Example:
 
+```php
+require_once __DIR__."/../vendor/autoload.php";
+$signal = new \Jtrw\PosixSignal\SignalHandler();
+
+while (true) {
+    $this->doSomething(); //Your Business logic
+    $signal->terminate();
+}
+```
+
+When our code get signal like `SIGTERM` it process code to end and soft finish our script
