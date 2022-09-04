@@ -1,4 +1,5 @@
 <?php
+//declare(ticks = 1);
 
 require_once __DIR__."/../vendor/autoload.php";
 $signal = new \Jtrw\PosixSignal\SignalHandler();

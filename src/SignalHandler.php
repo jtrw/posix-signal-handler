@@ -1,10 +1,23 @@
 <?php
-declare(ticks = 1);
+//declare(ticks = 1);
 
 namespace Jtrw\PosixSignal;
 
 class SignalHandler
 {
+    private const SIGNALS_TERMINATED = [
+        SIGINT,
+        SIGTSTP,
+        SIGTERM,
+        SIGHUP,
+        SIGILL
+    ];
+    
+    private const USER_SIGNALS = [
+        SIGUSR1,
+        SIGUSR2
+    ];
+    
     private bool $isTerminate = false;
     
     public function __construct()
@@ -31,6 +44,7 @@ class SignalHandler
     
     private function registered()
     {
+        pcntl_async_signals(true);
         pcntl_signal(SIGTERM, [$this, "handle"]); //Request Termination of the process.
         pcntl_signal(SIGHUP,  [$this, "handle"]);
         pcntl_signal(SIGUSR1, [$this, "handle"]);
@@ -41,16 +55,8 @@ class SignalHandler
     
     public function handle(int $sigNumber): void
     {
-        switch ($sigNumber) {
-            case SIGINT:
-            case SIGTSTP:
-            case SIGTERM:
-                $this->isTerminate = true;
-                break;
-            case SIGHUP:
-            case SIGILL:
-            case SIGUSR1:
-                break;
+        if (in_array($sigNumber, static::SIGNALS_TERMINATED)) {
+            $this->isTerminate = true;
         }
     }
     
