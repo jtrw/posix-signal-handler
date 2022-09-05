@@ -45,6 +45,7 @@ class SignalHandler
     private function registered()
     {
         pcntl_async_signals(true);
+        
         pcntl_signal(SIGTERM, [$this, "handle"]); //Request Termination of the process.
         pcntl_signal(SIGHUP,  [$this, "handle"]);
         pcntl_signal(SIGUSR1, [$this, "handle"]);
@@ -55,7 +56,7 @@ class SignalHandler
     
     public function handle(int $sigNumber): void
     {
-        if (in_array($sigNumber, static::SIGNALS_TERMINATED)) {
+        if (in_array($sigNumber, static::SIGNALS_TERMINATED, true)) {
             $this->isTerminate = true;
         }
     }
