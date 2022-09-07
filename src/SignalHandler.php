@@ -18,6 +18,8 @@ class SignalHandler
         SIGUSR2
     ];
     
+    private const HANDLER_DEFAULT = "handle";
+    
     private bool $isTerminate = false;
     
     public function __construct()
@@ -39,7 +41,12 @@ class SignalHandler
     
     private function finish(): void
     {
-        exit(0);
+        $this->sendSignal(SIGKILL);
+    }
+    
+    protected function sendSignal(int $signal)
+    {
+        posix_kill($this->getPid(), $signal);
     }
     
     private function registered()
@@ -53,14 +60,14 @@ class SignalHandler
     private function registeredTerminatedSignals(): void
     {
         foreach (static::SIGNALS_TERMINATED as $signal) {
-            pcntl_signal($signal, [$this, "handle"]);
+            pcntl_signal($signal, [$this, static::HANDLER_DEFAULT]);
         }
     }
     
     private function registeredUserSignals(): void
     {
         foreach (static::USER_SIGNALS as $signal) {
-            pcntl_signal($signal, [$this, "handle"]);
+            pcntl_signal($signal, [$this, static::HANDLER_DEFAULT]);
         }
     }
     
