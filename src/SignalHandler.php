@@ -22,11 +22,17 @@ class SignalHandler
     
     private bool $isTerminate = false;
     
+    /**
+     *
+     */
     public function __construct()
     {
         $this->registered();
     }
     
+    /**
+     * @return void
+     */
     public function terminate()
     {
         if ($this->isTerminate()) {
@@ -34,21 +40,34 @@ class SignalHandler
         }
     }
     
+    /**
+     * @return bool
+     */
     protected function isTerminate(): bool
     {
         return $this->isTerminate;
     }
     
+    /**
+     * @return void
+     */
     private function finish(): void
     {
         $this->sendSignal(SIGKILL);
     }
     
+    /**
+     * @param int $signal
+     * @return void
+     */
     protected function sendSignal(int $signal)
     {
         posix_kill($this->getPid(), $signal);
     }
     
+    /**
+     * @return void
+     */
     private function registered()
     {
         pcntl_async_signals(true);
@@ -57,6 +76,9 @@ class SignalHandler
         $this->registeredUserSignals();
     }
     
+    /**
+     * @return void
+     */
     private function registeredTerminatedSignals(): void
     {
         foreach (static::SIGNALS_TERMINATED as $signal) {
@@ -64,6 +86,9 @@ class SignalHandler
         }
     }
     
+    /**
+     * @return void
+     */
     private function registeredUserSignals(): void
     {
         foreach (static::USER_SIGNALS as $signal) {
@@ -71,6 +96,10 @@ class SignalHandler
         }
     }
     
+    /**
+     * @param int $sigNumber
+     * @return void
+     */
     public function handle(int $sigNumber): void
     {
         if ($this->isTerminatedSignal($sigNumber)) {
@@ -78,11 +107,18 @@ class SignalHandler
         }
     }
     
+    /**
+     * @param int $signalNumber
+     * @return bool
+     */
     private function isTerminatedSignal(int $signalNumber): bool
     {
         return in_array($signalNumber, static::SIGNALS_TERMINATED, true);
     }
     
+    /**
+     * @return int
+     */
     private function getPid(): int
     {
         return posix_getpid();
