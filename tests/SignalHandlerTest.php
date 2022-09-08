@@ -12,7 +12,6 @@ class SignalHandlerTest extends TestCase
         $pid = exec('php -q '.__DIR__.'/command/runScript.php > /dev/null 2>&1 & echo $!;');
     
         exec("ps -p ".$pid, $output);
-        print_r($output);
         Assert::assertNotEmpty($output[1]);
         sleep(1);
         $cmd = sprintf("kill -%s %s", SIGILL, $pid);
@@ -20,7 +19,7 @@ class SignalHandlerTest extends TestCase
         //posix_kill($pid, SIGILL);
         $output = [];
         exec("ps -p ".$pid, $output);
-        print_r($output);
+
         Assert::assertArrayNotHasKey(1, $output);
     }
     
