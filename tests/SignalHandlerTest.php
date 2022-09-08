@@ -14,11 +14,13 @@ class SignalHandlerTest extends TestCase
         exec("ps -p ".$pid, $output);
         Assert::assertNotEmpty($output[1]);
         
-        posix_kill($pid, SIGILL);
+        $cmd = sprintf("kill -%s %s", SIGILL, $pid);
+        exec($cmd);
+        //posix_kill($pid, SIGILL);
         $output = [];
         exec("ps -p ".$pid, $output);
         print_r($output);
-        //Assert::assertArrayNotHasKey(1, $output);
+        Assert::assertArrayNotHasKey(1, $output);
     }
     
 }
