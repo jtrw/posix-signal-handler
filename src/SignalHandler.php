@@ -1,5 +1,4 @@
 <?php
-//declare(ticks = 1);
 
 namespace Jtrw\PosixSignal;
 
@@ -57,7 +56,7 @@ class SignalHandler
     }
     
     /**
-     * @param int $signal
+     * @param  int $signal
      * @return void
      */
     protected function sendSignal(int $signal)
@@ -97,7 +96,7 @@ class SignalHandler
     }
     
     /**
-     * @param int $sigNumber
+     * @param  int $sigNumber
      * @return void
      */
     public function handle(int $sigNumber): void
@@ -108,7 +107,7 @@ class SignalHandler
     }
     
     /**
-     * @param int $signalNumber
+     * @param  int $signalNumber
      * @return bool
      */
     private function isTerminatedSignal(int $signalNumber): bool
