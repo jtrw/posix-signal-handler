@@ -21,4 +21,5 @@ while (true) {
 }
 ```
 
-When our code get signal like `SIGTERM` it process code to end and soft finish our script
+When our code get signal like `SIGTERM`, `SIGINT`, `SIGTSTP`, `SIGTERM`, `SIGHUP`, `SIGILL`
+it process your code to logic end, and soft finish your script.
