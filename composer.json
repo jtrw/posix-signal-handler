@@ -36,7 +36,7 @@
     },
     "scripts": {
         "test": "phpunit",
-        "check-style": "phpcs src",
+        "check-style": "phpcs --standard=ruleset.xml src",
         "fix-style": "phpcbf src"
     },
     "config": {

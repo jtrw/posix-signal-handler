@@ -11,16 +11,16 @@ class SignalHandler
         SIGHUP,
         SIGILL
     ];
-    
+
     private const USER_SIGNALS = [
         SIGUSR1,
         SIGUSR2
     ];
-    
+
     private const HANDLER_DEFAULT = "handle";
-    
+
     private bool $isTerminate = false;
-    
+
     /**
      *
      */
@@ -28,7 +28,7 @@ class SignalHandler
     {
         $this->registered();
     }
-    
+
     /**
      * @return void
      */
@@ -38,7 +38,7 @@ class SignalHandler
             $this->finish();
         }
     }
-    
+
     /**
      * @return bool
      */
@@ -46,7 +46,7 @@ class SignalHandler
     {
         return $this->isTerminate;
     }
-    
+
     /**
      * @return void
      */
@@ -54,7 +54,7 @@ class SignalHandler
     {
         $this->sendSignal(SIGKILL);
     }
-    
+
     /**
      * @param  int $signal
      * @return void
@@ -63,18 +63,18 @@ class SignalHandler
     {
         posix_kill($this->getPid(), $signal);
     }
-    
+
     /**
      * @return void
      */
     private function registered()
     {
         pcntl_async_signals(true);
-        
+
         $this->registeredTerminatedSignals();
         $this->registeredUserSignals();
     }
-    
+
     /**
      * @return void
      */
@@ -84,7 +84,7 @@ class SignalHandler
             pcntl_signal($signal, [$this, static::HANDLER_DEFAULT]);
         }
     }
-    
+
     /**
      * @return void
      */
@@ -94,7 +94,7 @@ class SignalHandler
             pcntl_signal($signal, [$this, static::HANDLER_DEFAULT]);
         }
     }
-    
+
     /**
      * @param  int $sigNumber
      * @return void
@@ -105,7 +105,7 @@ class SignalHandler
             $this->isTerminate = true;
         }
     }
-    
+
     /**
      * @param  int $signalNumber
      * @return bool
@@ -114,7 +114,7 @@ class SignalHandler
     {
         return in_array($signalNumber, static::SIGNALS_TERMINATED, true);
     }
-    
+
     /**
      * @return int
      */

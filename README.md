@@ -1,5 +1,13 @@
 # Posix Signal Handler
 
+[![Phpunit](https://github.com/jtrw/posix-signal-handler/workflows/Phpunit/badge.svg)](https://github.com/jtrw/posix-signal-handler/actions)
+[![Codecov](https://codecov.io/gh/jtrw/posix-signal-handler/branch/master/graph/badge.svg?token=FYMTSQDQP5)](https://codecov.io/gh/jtrw/posix-signal-handler)
+[![Latest Stable Version](http://poser.pugx.org/jtrw/posix-signal-handler/v)](https://packagist.org/packages/jtrw/posix-signal-handler)
+[![Total Downloads](http://poser.pugx.org/jtrw/posix-signal-handler/downloads)](https://packagist.org/packages/jtrw/posix-signal-handler)
+[![Latest Unstable Version](http://poser.pugx.org/jtrw/posix-signal-handler/v/unstable)](https://packagist.org/packages/jtrw/posix-signal-handler)
+[![License](http://poser.pugx.org/jtrw/posix-signal-handler/license)](https://packagist.org/packages/jtrw/posix-signal-handler)
+[![PHP Version Require](http://poser.pugx.org/jtrw/posix-signal-handler/require/php)](https://packagist.org/packages/jtrw/posix-signal-handler)
+
 First of all it is necessary for some scripts that work like php process in the background our system.
 For example queue or workers that run through cron, and working in operation memory full time like demons.
 Sometimes you need to terminate some php process like this `kill -9 pid`
