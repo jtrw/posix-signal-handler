@@ -36,10 +36,10 @@ jobs:
     # Docs: https://getcomposer.org/doc/articles/scripts.md
     
     - name: Xdebug
-      run: putenv XDEBUG_MODE=coverage
+      run: env XDEBUG_MODE=coverage
       
     - name: Run test suite
-      run: php ./vendor/phpunit/phpunit/phpunit -c ./tests/phpunit.xml --testdox --stderr --coverage-clover=coverage.xml
+      run: php -n -dzend_extension=xdebug -dxdebug.mode=coverage ./vendor/phpunit/phpunit/phpunit -c ./tests/phpunit.xml --testdox --stderr --coverage-clover=coverage.xml
    
     - name: Send code coverage report to Codecov.io
       uses: codecov/codecov-action@v2
