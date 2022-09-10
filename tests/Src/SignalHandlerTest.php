@@ -1,6 +1,6 @@
 <?php
 
-namespace Jtrw\PosixSignal\Tests;
+namespace Jtrw\PosixSignal\Tests\Src;
 
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\TestCase;
