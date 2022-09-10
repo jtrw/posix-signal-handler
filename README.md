@@ -1,7 +1,7 @@
 # Posix Signal Handler
 
 [![Phpunit](https://github.com/jtrw/posix-signal-handler/workflows/Phpunit/badge.svg)](https://github.com/jtrw/posix-signal-handler/actions)
-[![Codecov](https://codecov.io/gh/jtrw/posix-signal-handler/branch/master/graph/badge.svg?token=P4BT6K8IXF)](https://codecov.io/gh/jtrw/posix-signal-handler)
+[![codecov](https://codecov.io/gh/jtrw/posix-signal-handler/branch/master/graph/badge.svg?token=P4BT6K8IXF)](https://codecov.io/gh/jtrw/posix-signal-handler)
 [![Latest Stable Version](http://poser.pugx.org/jtrw/posix-signal-handler/v)](https://packagist.org/packages/jtrw/posix-signal-handler)
 [![Total Downloads](http://poser.pugx.org/jtrw/posix-signal-handler/downloads)](https://packagist.org/packages/jtrw/posix-signal-handler)
 [![Latest Unstable Version](http://poser.pugx.org/jtrw/posix-signal-handler/v/unstable)](https://packagist.org/packages/jtrw/posix-signal-handler)
