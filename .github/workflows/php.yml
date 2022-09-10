@@ -1,4 +1,4 @@
-name: PHP Composer
+name: Phpunit
 
 on:
   push:
@@ -36,4 +36,10 @@ jobs:
     # Docs: https://getcomposer.org/doc/articles/scripts.md
 
     - name: Run test suite
-      run: composer run-script test
+      run: php ./vendor/phpunit/phpunit/phpunit --testdox --stderr --coverage-clover=coverage.xml
+   
+    - name: Send code coverage report to Codecov.io
+      uses: codecov/codecov-action@v2
+      with:
+        #files: $GITHUB_WORKSPACE/tests/reports/clover.xml
+        token: ${{ secrets.CODECOV_TOKEN }}
