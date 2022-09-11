@@ -458,11 +458,9 @@
                 "php": ">=7.3"
             },
             "require-dev": {
-                "ext-pcntl": "*",
                 "phpunit/phpunit": "^9.3"
             },
             "suggest": {
-                "ext-pcntl": "*"
             },
             "type": "library",
             "extra": {
@@ -1797,7 +1795,6 @@
     "prefer-lowest": false,
     "platform": {
         "php": ">=7.4",
-        "ext-pcntl": "*",
         "ext-posix": "*"
     },
     "platform-dev": [],
