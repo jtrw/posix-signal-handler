@@ -4,7 +4,7 @@ namespace Jtrw\PosixSignal;
 
 class SignalHandler
 {
-    private const SIGNALS_TERMINATED = [
+    protected const SIGNALS_TERMINATED = [
         SIGINT,
         SIGTSTP,
         SIGTERM,
@@ -12,14 +12,14 @@ class SignalHandler
         SIGILL
     ];
 
-    private const USER_SIGNALS = [
+    protected const USER_SIGNALS = [
         SIGUSR1,
         SIGUSR2
     ];
 
-    private const HANDLER_DEFAULT = "handle";
+    protected const HANDLER_DEFAULT = "handle";
 
-    private bool $isTerminate = false;
+    protected bool $isTerminate = false;
 
     /**
      *
