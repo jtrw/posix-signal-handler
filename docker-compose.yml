@@ -1,0 +1,23 @@
+version: "3.7"
+
+services:
+  posix_php:
+    container_name: ${APP_COMPOSE_PROJECT_NAME}_php_fpm
+    build:
+      context: ./.docker/php${PHP_VER}-dev-fpm
+      args:
+        PHP_VER: ${PHP_VER}
+    env_file:
+      - .env
+    user: 1001:1001
+    ports:
+      - "9006:9000"
+    environment:
+      PHP_IDE_CONFIG: serverName=docker
+    volumes:
+      - ~/.composer/cache/:/.composer_cache/:rw
+      - ./.docker/php7.4-dev-fpm/conf.ini:/usr/local/etc/php/conf.d/conf.ini
+      - ./tests/reports:/tests/reports/:rw
+      - ./:/app:rw
+    working_dir: /app
+
