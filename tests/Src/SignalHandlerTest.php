@@ -2,6 +2,7 @@
 
 namespace Jtrw\PosixSignal\Tests\Src;
 
+use Jtrw\PosixSignal\SignalHandler;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\TestCase;
 
@@ -26,6 +27,19 @@ class SignalHandlerTest extends TestCase
 //        exec("ps -p ".$pid, $output);
 //
 //        Assert::assertArrayNotHasKey(1, $output);
+    }
+    
+    public function testTerminateMock()
+    {
+        $mock = $this->getMockBuilder(SignalHandler::class)
+            ->onlyMethods(['isTerminate'])->getMock();
+    
+        $mock->method('isTerminate')->will($this->returnValue(true));
+        
+        $mock->terminate();
+        Assert::assertTrue(true);
+        //$this->fail("Must be terminated");
+        
     }
     
 }
