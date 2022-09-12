@@ -32,7 +32,7 @@ class SignalHandler
     /**
      * @return void
      */
-    public function terminate()
+    public function terminate(): void
     {
         if ($this->isTerminate()) {
             $this->finish();
@@ -59,7 +59,7 @@ class SignalHandler
      * @param  int $signal
      * @return void
      */
-    protected function sendSignal(int $signal)
+    protected function sendSignal(int $signal): void
     {
         posix_kill($this->getPid(), $signal);
     }
