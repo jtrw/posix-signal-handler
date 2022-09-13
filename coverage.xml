@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1662928610">
-  <project timestamp="1662928610">
+<coverage generated="1662969761">
+  <project timestamp="1662969761">
     <file name="/app/src/SignalHandler.php">
       <class name="Jtrw\PosixSignal\SignalHandler" namespace="global">
         <metrics complexity="15" methods="11" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="17" coveredstatements="13" elements="28" coveredelements="21"/>
