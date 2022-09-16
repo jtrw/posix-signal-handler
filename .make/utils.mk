@@ -7,7 +7,7 @@ build_name = application-$(version)
 #$(eval $(RUN_ARGS):;@:)
 
 # Default parallelism
-JOBS=$(shell nproc)
+#JOBS=$(shell nproc)
 
 .PHONY: fix-permission
 fix-permission: ## fix permission for docker env
