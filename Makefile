@@ -28,4 +28,4 @@ tests: ## look for service logs
 
 .PHONY: phpcs
 phpcs:
-	php -q vendor/squizlabs/php_codesniffer/bin/phpcs --standard=ruleset.xml src
+	php -q vendor/squizlabs/php_codesniffer/bin/phpcs --standard=./.make/rule/ruleset.xml src
