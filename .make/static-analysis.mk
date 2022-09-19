@@ -49,5 +49,5 @@ security-tests: ## The SensioLabs Security Checker
 	docker-compose run --rm --no-deps $(PHP_FPM) sh -lc './vendor/bin/security-checker security:check --end-point=http://security.sensiolabs.org/check_lock'
 
 .PHONY: phpcs
-phpcs: ## run code standards fixer
+phpcs: ## run php code style checker
 	docker-compose run --rm --no-deps $(PHP_FPM) sh -lc 'vendor/bin/phpcs --standard=./.make/rule/ruleset.xml src'
