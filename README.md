@@ -32,7 +32,10 @@ while (true) {
 When our code get signal like `SIGTERM`, `SIGINT`, `SIGTSTP`, `SIGTERM`, `SIGHUP`, `SIGILL`
 it process your code to logic end, and soft finish your script.
 
-# Tests
+## Require
+`composer require jtrw/posix-signal-handler`
+
+## Tests
 You can run test in docker container. For run docker container you can exec command:
 `make start` it command run `docker-compose up -d`
 After it, you can run unittest in docker container for it execute `make tests`
